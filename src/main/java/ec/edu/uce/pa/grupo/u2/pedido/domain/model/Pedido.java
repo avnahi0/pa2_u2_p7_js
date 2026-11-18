@@ -5,8 +5,9 @@ public class Pedido {
     private Integer id;
     private String producto;
     private Double precio;
+    private Cliente cliente;
 
-    //GETTERS AND SETTERS
+    // GETTERS AND SETTERS
     public Integer getId() {
         return id;
     }
@@ -29,6 +30,14 @@ public class Pedido {
 
     public void setPrecio(Double precio) {
         this.precio = precio;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
 }
