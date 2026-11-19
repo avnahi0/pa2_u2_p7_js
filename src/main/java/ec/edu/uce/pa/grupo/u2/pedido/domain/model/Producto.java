@@ -1,10 +1,30 @@
 package ec.edu.uce.pa.grupo.u2.pedido.domain.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "productos")
 public class Producto {
 
+    @Id
+    @SequenceGenerator(name = "producto_seq", sequenceName = "prod_seq_db", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "producto_seq")
+    @Column(name = "prod_id") // Nombre de la columna de la base de datos
     private Integer id;
+
+    @Column(name = "prod_nombre")
     private String nombre;
+
+    @Column(name = "prod_precio")
     private Double precio;
+
+    @Column(name = "proddescripcion")
     private String descripcion;
 
     //GETTERS AND SETTERS

@@ -1,11 +1,28 @@
 package ec.edu.uce.pa.grupo.u2.pedido.domain.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "pagos")
 public class Pago {
 
+    @Id
+    @SequenceGenerator(name = "pago_seq", sequenceName = "pago_seq_db", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pago_seq")
+    @Column(name = "pago_id") // Nombre de la columna de la base de datos
     private Integer id;
+
+    @Column(name = "pago_metodoPago")
     private String metodoPago;
+
+    @Column(name = "pago_monto")
     private Double monto;
-    private Pedido pedido;
 
     // GETTERS AND SETTERS
     public Integer getId() {
@@ -30,14 +47,6 @@ public class Pago {
 
     public void setMonto(Double monto) {
         this.monto = monto;
-    }
-
-    public Pedido getPedido() {
-        return pedido;
-    }
-
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
     }
 
 }

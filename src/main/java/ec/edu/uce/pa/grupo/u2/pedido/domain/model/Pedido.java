@@ -1,11 +1,33 @@
 package ec.edu.uce.pa.grupo.u2.pedido.domain.model;
 
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity // Esta clase es administrada por Jakarta Persistence API
+@Table(name = "pedidos") // Nombre de la tabla en la base de datos
 public class Pedido {
 
+    @Id
+    @SequenceGenerator(name = "pedido_seq", sequenceName = "pedd_seq_db", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pedido_seq")
+    @Column(name = "pedd_id") // Nombre de la columna de la base de datos
     private Integer id;
+
+    @Column(name = "pedd_producto")
     private String producto;
+
+    @Column(name = "pedd_precio")
     private Double precio;
-    private Cliente cliente;
+
+    @Column(name = "pedd_fecha")
+    private LocalDateTime fecha;
 
     // GETTERS AND SETTERS
     public Integer getId() {
@@ -32,12 +54,12 @@ public class Pedido {
         this.precio = precio;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public LocalDateTime getFecha() {
+        return fecha;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
     }
 
 }

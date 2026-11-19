@@ -1,13 +1,34 @@
 package ec.edu.uce.pa.grupo.u2.pedido.domain.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "detallePedidos")
 public class DetallePedido {
 
+    @Id
+    @SequenceGenerator(name = "dtllepdd-seq", sequenceName = "dtdp_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "dtllepdd_seq")
+    @Column(name = "dtpd_id")
     private Integer id;
+
+    @Column(name = "dtpd_producto")
     private String producto;
+
+    @Column(name = "dtpd_precio")
     private Double precio;
+
+    @Column(name = "dtpd_cantidad")
     private Integer cantidad;
+
+    @Column(name = "dtpd_subtotal")
     private Double subtotal;
-    private Pedido pedido;
 
     // GETTERS AND SETTERS
     public Integer getId() {
@@ -48,14 +69,6 @@ public class DetallePedido {
 
     public void setSubtotal(Double subtotal) {
         this.subtotal = subtotal;
-    }
-
-    public Pedido getPedido() {
-        return pedido;
-    }
-
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
     }
 
 }
