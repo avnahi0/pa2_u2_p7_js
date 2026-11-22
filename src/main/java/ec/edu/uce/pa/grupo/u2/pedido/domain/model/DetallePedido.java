@@ -27,9 +27,6 @@ public class DetallePedido {
     @Column(name = "dtpd_cantidad")
     private Integer cantidad;
 
-    @Column(name = "dtpd_subtotal")
-    private Double subtotal;
-
     // GETTERS AND SETTERS
     public Integer getId() {
         return id;
@@ -61,14 +58,6 @@ public class DetallePedido {
 
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
-    }
-
-    public Double getSubtotal() {
-        return subtotal;
-    }
-
-    public void setSubtotal(Double subtotal) {
-        this.subtotal = subtotal;
     }
 
 }
