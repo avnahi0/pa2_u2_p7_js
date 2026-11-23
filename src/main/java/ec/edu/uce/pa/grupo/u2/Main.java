@@ -25,19 +25,19 @@ public class Main implements QuarkusApplication {
     @Inject
     private PedidoService pedidoService;
 
-    @Inject 
+    @Inject
     private ClienteService clienteService;
 
-    @Inject 
+    @Inject
     private DetallePedidoService detallePedidoService;
 
-    @Inject 
+    @Inject
     private EnvioService envioService;
 
-    @Inject 
+    @Inject
     private PagoService pagoService;
 
-    @Inject 
+    @Inject
     private ProductoService productoService;
 
     public static void main(String[] args) {
@@ -49,15 +49,32 @@ public class Main implements QuarkusApplication {
 
         System.out.println("\nHello, Quarkus!\n");
 
-        //PEDIDO
+        // PEDIDO
+        // CREATED (INSERT)
+ 
         Pedido pedido = new Pedido();
-        pedido.setProducto("Producto de prueba");
+        pedido.setProducto("Producto de prueba2");
         pedido.setPrecio(100.00);
         pedido.setFecha(LocalDateTime.now());
-
         this.pedidoService.guardar(pedido);
+        
 
-        //CLIENTE
+        // READ (BUSCAR)
+        Pedido pedido1 = this.pedidoService.bucarPorId(2);
+        System.out.println("Pedido encontrado: " + pedido1 + "\n");
+
+        //UPDATE (ACTUALIZAR)
+        pedido.setPrecio(200.0);
+        this.pedidoService.actualizar(pedido);
+
+        Pedido pedido2 = this.pedidoService.bucarPorId(2);
+        System.out.println("Pedido actualizado: " + pedido2 + "\n");
+
+        // DELETE (ELIMINAR)
+        this.pedidoService.eliminar(2);
+
+        /* 
+        // CLIENTE
         Cliente cliente = new Cliente();
         cliente.setNombre("Joselyn");
         cliente.setCorreo("avn.ahi@gmail.com");
@@ -65,7 +82,7 @@ public class Main implements QuarkusApplication {
 
         this.clienteService.guardar(cliente);
 
-        //DETALLE PEDIDO
+        // DETALLE PEDIDO
         DetallePedido detallePedido = new DetallePedido();
         detallePedido.setCantidad(1);
         detallePedido.setPrecio(100.00);
@@ -73,7 +90,7 @@ public class Main implements QuarkusApplication {
 
         this.detallePedidoService.guardar(detallePedido);
 
-        //ENVIO
+        // ENVIO
         Envio envio = new Envio();
         envio.setPais("Ecuador");
         envio.setCiudad("Quito");
@@ -82,23 +99,21 @@ public class Main implements QuarkusApplication {
 
         this.envioService.guardar(envio);
 
-        //PAGO
+        // PAGO
         Pago pago = new Pago();
         pago.setMetodoPago("EFECTIVO");
         pago.setMonto(100.00);
 
         this.pagoService.guardar(pago);
 
-        //PRODUCTO
+        // PRODUCTO
         Producto producto = new Producto();
         producto.setNombre("Producto de Prueba");
         producto.setDescripcion("Primer producto en la base de datos");
         producto.setPrecio(100.00);
 
-        this.productoService.guardar(producto);
+        this.productoService.guardar(producto);*/
 
-
-        
         return 0;
 
     }

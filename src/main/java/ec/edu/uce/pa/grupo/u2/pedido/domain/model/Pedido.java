@@ -62,4 +62,13 @@ public class Pedido {
         this.fecha = fecha;
     }
 
+    //TO STRING
+        @Override
+    public String toString() {
+        return "Pedido [id=" + id + ", producto=" + producto + ", precio=" + precio + ", fecha=" + fecha + "]";
+    }
+
+
+    
+
 }
