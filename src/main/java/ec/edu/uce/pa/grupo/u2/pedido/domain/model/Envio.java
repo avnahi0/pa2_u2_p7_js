@@ -71,4 +71,12 @@ public class Envio {
         this.estado = estado;
     }
 
+    @Override
+    public String toString() {
+        return "Envio [id=" + id + ", direccion=" + direccion + ", ciudad=" + ciudad + ", pais=" + pais + ", estado="
+                + estado + "]";
+    }
+
+    
+
 }

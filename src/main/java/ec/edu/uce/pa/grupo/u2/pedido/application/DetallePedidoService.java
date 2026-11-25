@@ -17,8 +17,8 @@ public class DetallePedidoService {
         this.detallePedidoRepository.create(detallePedido);
     }
 
-    public void buscarPorId(Integer id){
-        this.detallePedidoRepository.read(id);
+    public DetallePedido buscarPorId(Integer id){
+       return  this.detallePedidoRepository.read(id);
     }
 
     public void actualizar(DetallePedido detallePedido){

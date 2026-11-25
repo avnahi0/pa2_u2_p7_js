@@ -49,4 +49,11 @@ public class Pago {
         this.monto = monto;
     }
 
+    @Override
+    public String toString() {
+        return "Pago [id=" + id + ", metodoPago=" + metodoPago + ", monto=" + monto + "]";
+    }
+
+    
+
 }

@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 public class DetallePedido {
 
     @Id
-    @SequenceGenerator(name = "dtllepdd-seq", sequenceName = "dtdp_seq", allocationSize = 1)
+    @SequenceGenerator(name = "dtllepdd_seq", sequenceName = "dtdp_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "dtllepdd_seq")
     @Column(name = "dtpd_id")
     private Integer id;
@@ -58,6 +58,12 @@ public class DetallePedido {
 
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
+    }
+
+    @Override
+    public String toString() {
+        return "DetallePedido [id=" + id + ", producto=" + producto + ", precio=" + precio + ", cantidad=" + cantidad
+                + "]";
     }
 
 }

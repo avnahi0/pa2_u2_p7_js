@@ -17,8 +17,8 @@ public class ClienteService {
         this.clienteReporitory.create(cliente);
     }
 
-    public void buscarPorId(Integer id) {
-        this.clienteReporitory.read(id);
+    public Cliente buscarPorId(Integer id) {
+        return this.clienteReporitory.read(id);
     }
 
     public void actualizar(Cliente cliente) {
